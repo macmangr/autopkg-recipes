@@ -17,6 +17,8 @@ Zoom-IT:	https://zoom.us/client/latest/ZoomInstallerIT.pkg</string>
 	<dict>
 		<key>NAME</key>
 		<string>zoom.us</string>
+		<key>DOWNLOAD_URL</key>
+        <string>https://zoom.us/client/latest/ZoomInstallerIT.pkg</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
@@ -28,7 +30,7 @@ Zoom-IT:	https://zoom.us/client/latest/ZoomInstallerIT.pkg</string>
 				<key>filename</key>
 				<string>%NAME%.pkg</string>
 				<key>url</key>
-				<string>https://zoom.us/client/latest/ZoomInstallerIT.pkg</string>
+				<string>%DOWNLOAD_URL%</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
