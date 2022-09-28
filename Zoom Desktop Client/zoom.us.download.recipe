@@ -7,7 +7,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of zoom.us.
 
-Set "url" with the required download url:
+Set DOWNLOAD_URL with the required download url:
 x86_64:		https://zoom.us/client/latest/zoomusInstaller.pkg
 arm64:		https://zoom.us/client/latest/Zoom.pkg?archType=arm64
 Zoom-IT:	https://zoom.us/client/latest/ZoomInstallerIT.pkg</string>
