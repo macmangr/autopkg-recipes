@@ -5,7 +5,7 @@
 	<key>Comment</key>
 	<string>Created with Recipe Robot v2.2.0 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of TOPIX Client and imports it into Munki.</string>
+	<string>Downloads version 9.12 of TOPIX Client and imports it into Munki.</string>
 	<key>Identifier</key>
 	<string>com.github.macmangr.munki.TOPIXClient</string>
 	<key>Input</key>
@@ -34,7 +34,7 @@
 				<string>testing</string>
 			</array>
 			<key>description</key>
-			<string> </string>
+			<string>CRM, ERP, DMS, FI, HR. Die All-in-One-Lösung für Ihr Unternehmen</string>
 			<key>developer</key>
 			<string>TOPIX Business Software AG</string>
 			<key>display_name</key>
