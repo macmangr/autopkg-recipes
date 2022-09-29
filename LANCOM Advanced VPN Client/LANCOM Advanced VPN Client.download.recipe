@@ -23,7 +23,7 @@
 				<key>re_pattern</key>
 				<string>SecEntryCl_macOS_([\d\.]+)_</string>
 				<key>result_output_var_name</key>
-				<string>version</string>
+				<string>dl_version</string>
 				<key>url</key>
 				<string>https://www.ncp-e.com/de/service/download-vpn-client/</string>
 			</dict>
@@ -36,7 +36,7 @@
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 				<key>url</key>
-				<string>https://ftp.lancom.de/LANCOM-Releases/LC-VPN-Client/LC-Advanced-VPN-Client-macOS-%version%-Rel-x86-64.dmg</string>
+				<string>https://ftp.lancom.de/LANCOM-Releases/LC-VPN-Client/LC-Advanced-VPN-Client-macOS-%dl_version%-Rel-x86-64.dmg</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
