@@ -26,9 +26,7 @@
 				<string>testing</string>
 			</array>
 			<key>description</key>
-			<string>Secure corporate network access when traveling.
-			The LANCOM Advanced VPN Client provides mobile employees with encrypted access to the company network,
-			whether they are at their home office, on the road, or even abroad.</string>
+			<string> </string>
 			<key>developer</key>
 			<string>NCP engineering GmbH</string>
 			<key>display_name</key>
@@ -45,29 +43,6 @@
 	<string>com.github.macmangr.download.LANCOMAdvancedVPNClient</string>
 	<key>Process</key>
 	<array>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>input_plist_path</key>
-				<string>%RECIPE_CACHE_DIR%/downloads/%NAME%.dmg/LANCOM Advanced VPN Client.app/Contents/Info.plist</string>
-				<key>plist_version_key</key>
-				<string>CFBundleShortVersionString</string>
-			</dict>
-			<key>Processor</key>
-			<string>Versioner</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>additional_pkginfo</key>
-				<dict>
-					<key>version</key>
-					<string>%version%</string>
-				</dict>
-			</dict>
-			<key>Processor</key>
-			<string>MunkiPkginfoMerger</string>
-		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
