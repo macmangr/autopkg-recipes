@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Comment</key>
+	<string>Created with Recipe Robot v2.2.0 (https://github.com/homebysix/recipe-robot)</string>
+	<key>Description</key>
+	<string>Downloads the latest version of LG Calibration Studio and imports it into Munki.</string>
+	<key>Identifier</key>
+	<string>com.github.macmangr.munki.LGCalibrationStudio</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/%NAME%</string>
+		<key>NAME</key>
+		<string>LG Calibration Studio</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>blocking_applications</key>
+			<array>
+				<string>ReminderPopUpUI.app</string>
+				<string>TCPAppToSetProfile.app</string>
+				<string>LoginItemTCPScheduler.app</string>
+				<string>LCSUninstaller.app</string>
+				<string>LG Calibration Studio Helper.app</string>
+				<string>LG Calibration Studio.app</string>
+			</array>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>LG Calibration Studio is an application to ensure high color reproduction accuracy with LG monitor. 
+*Note: The LG Calibration Studio is new version of the True Color Pro. 
+  
+- Supported OS: macOS 11, macOS 12 
+  
+- Supported Calibrator: 
+
+  > LG Electronics
+     COLOR CALIBRATION SENSOR
+  > X-rite
+     ColorMunki Photo
+     ColorMunki Design
+     i1DISPLAY Pro
+     i1DISPLAY Pro Plus
+     i1DISPLAY Studio
+     i1Pro2
+     i1Pro3
+  > Data Color
+     Spyder5
+     SpyderX
+  > Colorimeter Research
+     CR-100
+  > Gamma Scientific
+     GS1160B
+  > Klein Instruments
+     K10A
+- Includes: TUSB3410 driver </string>
+			<key>developer</key>
+			<string>LG Electronics</string>
+			<key>display_name</key>
+			<string>LG Calibration Studio</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.macmangr.download.LGCalibrationStudio</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>dmg_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
+				<key>dmg_root</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+			</dict>
+			<key>Processor</key>
+			<string>DmgCreator</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%dmg_path%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
