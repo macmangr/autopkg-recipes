@@ -9,7 +9,7 @@
 The version of the client depends on the version of the PBX, so the correct version should be selected for installation
 
 Available "dl_version" values (as of October 2022) include:
-- "7.3"	(not yet released)
+- "7.3"
 - "7.2"
 - "7.1"
 - "7.0""</string>
