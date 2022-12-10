@@ -59,6 +59,17 @@
 			<string>Unarchiver</string>
 		</dict>
 		<dict>
+			<key>Comment</key>
+			<string>Collect the file name.</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pattern</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/*.pkg</string>
+			</dict>
+			<key>Processor</key>
+			<string>FileFinder</string>
+		</dict>
+		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>expected_authority_names</key>
@@ -68,7 +79,7 @@
 					<string>Apple Root CA</string>
 				</array>
 				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/LGCalibrationStudio_V6.5.9_signed.pkg</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/%found_basename%</string>
 			</dict>
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
@@ -79,7 +90,7 @@
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/unpack</string>
 				<key>flat_pkg_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/LGCalibrationStudio_V6.5.9_signed.pkg</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/%found_basename%</string>
 				<key>purge_destination</key>
 				<true/>
 			</dict>
