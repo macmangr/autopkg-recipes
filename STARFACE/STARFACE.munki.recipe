@@ -5,7 +5,7 @@
 	<key>Comment</key>
 	<string>Created with Recipe Robot v2.2.0 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the version of STARFACE specified by "dl_version".
+	<string>Downloads the version of STARFACE specified by "MAJOR_VERSION".
 The version of the client depends on the version of the PBX, so the correct version should be selected for installation
 Available versions are:
 7.3
@@ -20,7 +20,7 @@ Available versions are:
 		<string>apps/%NAME%</string>
 		<key>NAME</key>
 		<string>STARFACE</string>
-		<key>dl_version</key>
+		<key>MAJOR_VERSION</key>
 		<string>7.3</string>
 		<key>pkginfo</key>
 		<dict>
