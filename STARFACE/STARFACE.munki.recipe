@@ -11,11 +11,12 @@
 	<key>Description</key>
 	<string>Downloads the version of STARFACE specified by "MAJOR_VERSION".
 The version of the client depends on the version of the PBX, so the correct version should be selected for installation
-Available versions are:
-7.3
-7.2
-7.1
-7.0</string>
+
+Available "MAJOR_VERSION" values (as of December 2022) include:
+- "7.3"
+- "7.2"
+- "7.1"
+- "7.0""</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/%NAME%</string>
 		<key>NAME</key>
