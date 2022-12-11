@@ -11,10 +11,11 @@
 	<key>Description</key>
 	<string>Downloads the version of STARFACE UCC Client specified by "MAJOR_VERSION".
 The version of the client depends on the version of the PBX, so the correct version should be selected for installation
-Available versions are:
-6.8		(never released)
-6.7		(for the latest 6.7, 6.7.3.3 at the moment)
-6.7.2	(for the latest 6.7.2)</string>
+
+Available "MAJOR_VERSION" values (as of December 2022) include:
+- "6.8"		(never released)
+- "6.7"		(for the latest 6.7, 6.7.3.3 at the moment)
+- "6.7.2"	(for the latest 6.7.2)</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/%NAME%</string>
 		<key>NAME</key>
