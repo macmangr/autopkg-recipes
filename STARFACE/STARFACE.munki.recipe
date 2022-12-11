@@ -20,8 +20,6 @@ Available versions are:
 		<string>apps/%NAME%</string>
 		<key>NAME</key>
 		<string>STARFACE</string>
-		<key>MAJOR_VERSION</key>
-		<string>7.3</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
