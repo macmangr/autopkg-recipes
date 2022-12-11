@@ -4,16 +4,16 @@
 <dict>
 	<key>Comment</key>
 	<string>Created with Recipe Robot v2.2.0 (https://github.com/homebysix/recipe-robot)</string>
+	<key>Identifier</key>
+	<string>com.github.macmangr.munki.Horos</string>
+	<key>Input</key>
+	<dict>
 	<key>Description</key>
 	<string>Downloads the latest version of Horos and imports it into Munki.
 
 Allowable ARCHITECTURE values (as of October 2022) include:
 - "" for the Intel build (this is the default)
 - "_Apple" for the Apple Silicon build</string>
-	<key>Identifier</key>
-	<string>com.github.macmangr.munki.Horos</string>
-	<key>Input</key>
-	<dict>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/%NAME%</string>
 		<key>NAME</key>
