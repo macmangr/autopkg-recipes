@@ -4,6 +4,10 @@
 <dict>
 	<key>Comment</key>
 	<string>Created with Recipe Robot v2.2.0 (https://github.com/homebysix/recipe-robot)</string>
+	<key>Identifier</key>
+	<string>com.github.macmangr.munki.STARFACE</string>
+	<key>Input</key>
+	<dict>
 	<key>Description</key>
 	<string>Downloads the version of STARFACE specified by "MAJOR_VERSION".
 The version of the client depends on the version of the PBX, so the correct version should be selected for installation
@@ -12,10 +16,6 @@ Available versions are:
 7.2
 7.1
 7.0</string>
-	<key>Identifier</key>
-	<string>com.github.macmangr.munki.STARFACE</string>
-	<key>Input</key>
-	<dict>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/%NAME%</string>
 		<key>NAME</key>
