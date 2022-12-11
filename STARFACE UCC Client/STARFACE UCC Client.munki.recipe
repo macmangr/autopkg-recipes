@@ -4,6 +4,10 @@
 <dict>
 	<key>Comment</key>
 	<string>Created with Recipe Robot v2.2.0 (https://github.com/homebysix/recipe-robot)</string>
+	<key>Identifier</key>
+	<string>com.github.macmangr.munki.STARFACEUCCClient</string>
+	<key>Input</key>
+	<dict>
 	<key>Description</key>
 	<string>Downloads the version of STARFACE UCC Client specified by "MAJOR_VERSION".
 The version of the client depends on the version of the PBX, so the correct version should be selected for installation
@@ -11,10 +15,6 @@ Available versions are:
 6.8		(never released)
 6.7		(for the latest 6.7, 6.7.3.3 at the moment)
 6.7.2	(for the latest 6.7.2)</string>
-	<key>Identifier</key>
-	<string>com.github.macmangr.munki.STARFACEUCCClient</string>
-	<key>Input</key>
-	<dict>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/%NAME%</string>
 		<key>NAME</key>
