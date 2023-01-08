@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version of Synology Active Backup for Business Agent and imports it into Munki.</string>
+	<key>Identifier</key>
+	<string>com.github.macmangr.munki.SynologyActiveBackupforBusinessAgent</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/%NAME%</string>
+		<key>NAME</key>
+		<string>Synology Active Backup for Business Agent</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>blocking_applications</key>
+			<array>
+				<string>Synology Active Backup for Business Agent.app</string>
+				<string>Uninstall Synology Active Backup for Business.app</string>
+				<string>Synology Active Backup for Business Daemon.app</string>
+			</array>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>Synology Active Backup for Business is the all-in-one backup solution, designed for streamlining and enhancing data protection in businesses' diverse IT environments.
+Before protecting and backing up data stored on Windows devices and Linux physical servers,
+Active Backup for Business Agent is required to be installed on the target device to carry out the designed backup tasks and store the backed up data.
+As the management is centralized on the server end, most of the actions require either DSM or device's administrative privilege.</string>
+			<key>developer</key>
+			<string>Synology Inc.</string>
+			<key>display_name</key>
+			<string>Synology Active Backup for Business Agent</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.macmangr.download.SynologyActiveBackupforBusinessAgent</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
