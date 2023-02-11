@@ -20,7 +20,7 @@ Available "MAJOR_VERSION" values (as of December 2022) include:
 		<key>NAME</key>
 		<string>STARFACE</string>
 		<key>MAJOR_VERSION</key>
-		<string>7.2</string>
+		<string>7.3</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
@@ -30,7 +30,7 @@ Available "MAJOR_VERSION" values (as of December 2022) include:
 			<key>Arguments</key>
 			<dict>
 				<key>re_pattern</key>
-                <string>enclosure url="(?P&lt;url&gt;https:\/\/www.starface-cdn.de\/starface\/clients\/mac\/STARFACE-%MAJOR_VERSION%.*.zip)</string>
+                <string>enclosure url="(?P&lt;url&gt;https:\/\/www.starface-cdn.de\/starface\/clients\/mac\/STARFACE-%MAJOR_VERSION%.*.dmg)</string>
                 <key>result_output_var_name</key>
                 <string>url</string>
 				<key>url</key>
@@ -43,7 +43,7 @@ Available "MAJOR_VERSION" values (as of December 2022) include:
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
-				<string>%NAME%.zip</string>
+				<string>%NAME%.dmg</string>
 				<key>url</key>
                 <string>%url%</string>
 			</dict>
