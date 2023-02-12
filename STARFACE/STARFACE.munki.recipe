@@ -21,6 +21,8 @@ Available "MAJOR_VERSION" values (as of December 2022) include:
 		<string>apps/%NAME%</string>
 		<key>NAME</key>
 		<string>STARFACE</string>
+		<key>MAJOR_VERSION</key>
+		<string>7.3</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -50,17 +52,6 @@ Available "MAJOR_VERSION" values (as of December 2022) include:
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>dmg_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
-				<key>dmg_root</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-			</dict>
-			<key>Processor</key>
-			<string>DmgCreator</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
 				<key>additional_pkginfo</key>
 				<dict>
 					<key>version</key>
@@ -74,7 +65,7 @@ Available "MAJOR_VERSION" values (as of December 2022) include:
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
-				<string>%dmg_path%</string>
+				<string>%pathname%</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 				<key>version_comparison_key</key>
