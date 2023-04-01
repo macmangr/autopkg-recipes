@@ -20,6 +20,8 @@ This recipe differs from the one in keeleysam-recipes because it offers code sig
 	<dict>
 		<key>DERIVE_MIN_OS</key>
 		<string>YES</string>
+		<key>MAJOR_VERSION</key>
+		<string>18</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/%NAME%</string>
 		<key>NAME</key>
