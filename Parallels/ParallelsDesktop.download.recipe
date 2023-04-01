@@ -17,7 +17,7 @@ This recipe differs from the one in keeleysam-recipes because it offers code sig
 	<key>Input</key>
 	<dict>
 		<key>MAJOR_VERSION</key>
-		<string>15</string>
+		<string>18</string>
 		<key>NAME</key>
 		<string>Parallels Desktop</string>
 		<key>PLATFORM_ARCH</key>
