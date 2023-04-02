@@ -46,7 +46,7 @@ This recipe differs from the one in keeleysam-recipes because it offers code sig
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 				<key>url</key>
-				<string>%url_version%/%PLATFORM_ARCH%</string>
+				<string>%url_version%%PLATFORM_ARCH%</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
