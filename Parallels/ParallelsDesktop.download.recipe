@@ -31,7 +31,7 @@ This recipe differs from the one in keeleysam-recipes because it offers code sig
 			<key>Arguments</key>
 			<dict>
 				<key>re_pattern</key>
-				<string>https://download.parallels.com/desktop/v%MAJOR_VERSION%/(.*?)(?=\?|\")</string>
+				<string>(https.*?%MAJOR_VERSION%(.*?)(?=\?|\"))</string>
 				<key>result_output_var_name</key>
 				<string>url_version</string>
 				<key>url</key>
