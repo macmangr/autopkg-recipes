@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Download recipe for the latest localized version of Foxit PDF Reader.</string>
+	<string>Download recipe for the latest localized version of Foxit PDF Reader.
 Available "LANGUAGE" values include:
 - "English"
 - "French"
