@@ -9,7 +9,7 @@ Available "LANGUAGE" values include:
 - "French"
 - "German"
 - "Italian"
-- "Spanish""</string>
+- "Spanish"</string>
 	<key>Identifier</key>
 	<string>com.github.macmangr.download.FoxitPDFReader</string>
 	<key>Input</key>
