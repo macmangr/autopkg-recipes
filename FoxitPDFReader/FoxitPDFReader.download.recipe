@@ -29,7 +29,7 @@ Available "LANGUAGE" values include:
 				<key>filename</key>
 				<string>%NAME%.pkg</string>
 				<key>url</key>
-				<string><![CDATA[https://www.foxit.com/downloads/pdf-reader-thanks.html?product=Foxit-Reader&amp;platform=Mac-OS-X&amp;version=&amp;package_type=&amp;language=German&amp;formId=download-reader]]></string>
+				<string><![CDATA[https://www.foxit.com/downloads/pdf-reader-thanks.html?product=Foxit-Reader&platform=Mac-OS-X&version=&package_type=&language=German&formId=download-reader]]></string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
