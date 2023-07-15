@@ -20,10 +20,36 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
+				<key>re_pattern</key>
+				<string>10.15\".*?value=\"(.*?)\"</string>
+				<key>result_output_var_name</key>
+				<string>dl_version</string>
+				<key>url</key>
+				<string>https://www.wibu.com/de/support/anwendersoftware/anwendersoftware.html</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>re_pattern</key>
+				<string>rel=\"nofollow\" href=\"(.*?)\"</string>
+				<key>result_output_var_name</key>
+				<string>dl_link</string>
+				<key>url</key>
+				<string>https://www.wibu.com/de/support/anwendersoftware/anwendersoftware/file/download/%dl_version%.html</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 				<key>url</key>
-				<string>https://www.wibu.com/de/support/anwendersoftware/anwendersoftware/file/download/11792.html?tx_wibudownloads_downloadlist%5BdirectDownload%5D=directDownload&amp;amp;tx_wibudownloads_downloadlist%5BuseAwsS3%5D=0&amp;amp;cHash=8dba7ab094dec6267346f04fce2a2bcd</string>
+				<string>https://www.wibu.com%dl_link%</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
