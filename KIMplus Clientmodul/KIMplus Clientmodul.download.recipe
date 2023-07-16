@@ -19,7 +19,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>re_pattern</key>
-				<string>(?<=targetMediaFileId=\"mac\").*(?<=fileName=\")(.*?)\"</string>
+				<string>(?=targetMediaFileId=\"mac\").*(?=fileName=\")(.*?)\" newVersion</string>
 				<key>result_output_var_name</key>
 				<string>dl_name</string>
 				<key>url</key>
