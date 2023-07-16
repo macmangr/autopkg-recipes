@@ -33,6 +33,11 @@
 			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
+			<key>postinstall_script</key>
+            <string>#!/bin/zsh
+    /usr/bin/killall "Synology Drive Client"
+	/usr/bin/killall "cloud-drive-eventd"
+			</string>
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
