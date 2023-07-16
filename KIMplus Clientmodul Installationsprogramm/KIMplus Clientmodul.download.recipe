@@ -18,10 +18,23 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
+				<key>re_pattern</key>
+				<string>(?<=targetMediaFileId=\"mac\").*(?<=fileName=\")(.*?)\"</string>
+				<key>result_output_var_name</key>
+				<string>dl_name</string>
+				<key>url</key>
+				<string>https://cm.kimplus.de/download/current/updates.xml</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 				<key>url</key>
-				<string>https://cm.kimplus.de/download/current/kimplus-clientmodul_1_4_7_0_PU_macos.dmg</string>
+				<string>https://cm.kimplus.de/download/current/%dl_name%</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
