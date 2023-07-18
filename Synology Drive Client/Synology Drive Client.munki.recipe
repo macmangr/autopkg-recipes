@@ -55,8 +55,7 @@
                         <string>uninstall_script</string>
                         <key>uninstall_script</key>
                         <string>#!/bin/bash
-    /usr/bin/killall "Synology Drive Client"
-	/usr/bin/killall "cloud-drive-eventd"
+	exec "/Applications/Synology Drive Client.app/Contents/SharedSupport/Remove Synology Drive Client.app"
             </string>
                 </dict>
             </dict>
