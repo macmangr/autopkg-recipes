@@ -43,6 +43,22 @@
 	<key>Process</key>
 	<array>
 		<dict>
+            <key>Arguments</key>
+            <dict>
+                <key>additional_pkginfo</key>
+                <dict>
+                        <key>uninstall_method</key>
+                        <string>uninstall_script</string>
+                        <key>uninstall_script</key>
+                        <string>#!/bin/bash
+	exec "/private/tmp/CM-Install/CmUninstall.app"
+            </string>
+                </dict>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+        </dict>
+		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
