@@ -51,7 +51,7 @@
                         <string>uninstall_script</string>
                         <key>uninstall_script</key>
                         <string>#!/bin/bash
-	exec "/private/tmp/CM-Install/CmUninstall.app"
+	exec %pathname%/CmUninstall.app
             </string>
                 </dict>
             </dict>
