@@ -53,6 +53,7 @@ Available "LANGUAGE" values include:
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
 		</dict>
+		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>flat_pkg_path</key>
