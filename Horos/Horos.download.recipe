@@ -27,7 +27,7 @@ Allowable ARCHITECTURE values (as of October 2022) include:
 			<key>Arguments</key>
 			<dict>
 				<key>re_pattern</key>
-				<string>Horos v(.*?)&lt;\/span</string>
+				<string>Horos v(.*?)&lt;</string>
 				<key>result_output_var_name</key>
 				<string>latest_version</string>
 				<key>url</key>
