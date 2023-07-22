@@ -29,7 +29,7 @@ Available "LANGUAGE" values include:
 				<key>filename</key>
 				<string>%NAME%.pkg</string>
 				<key>url</key>
-				<string><![CDATA[https://www.foxit.com/downloads/pdf-reader-thanks.html?product=Foxit-Reader&platform=Mac-OS-X&version=&package_type=&language=German&formId=download-reader]]></string>
+				<string><![CDATA[https://www.foxit.com/downloads/pdf-reader-thanks.html?product=Foxit-Reader&platform=Mac-OS-X&version=&package_type=&language=%LANGUAGE%&formId=download-reader]]></string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
@@ -41,19 +41,18 @@ Available "LANGUAGE" values include:
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/downloads/%NAME%.pkg</string>
 				<key>expected_authority_names</key>
 				<array>
 					<string>Developer ID Installer: Foxit Corporation (8GN47HTP75)</string>
 					<string>Developer ID Certification Authority</string>
 					<string>Apple Root CA</string>
 				</array>
+				<key>input_path</key>
+				<string>%pathname%</string>
 			</dict>
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
 		</dict>
-		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>flat_pkg_path</key>
