@@ -33,10 +33,11 @@
 			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
-			<key>postinstall_script</key>
+			<key>preuninstall_script</key>
             <string>#!/bin/zsh
     /usr/bin/killall "Synology Drive Client"
 	/usr/bin/killall "cloud-drive-eventd"
+	exit 0
 			</string>
 		</dict>
 	</dict>
@@ -56,6 +57,7 @@
                         <key>uninstall_script</key>
                         <string>#!/bin/bash
 	exec "/Applications/Synology Drive Client.app/Contents/SharedSupport/Remove Synology Drive Client.app"
+	exit 0
             </string>
                 </dict>
             </dict>
