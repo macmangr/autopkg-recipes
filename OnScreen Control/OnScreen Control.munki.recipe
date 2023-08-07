@@ -36,6 +36,13 @@
 			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
+			<key>uninstall_method</key>
+            <string>uninstall_script</string>
+            <key>uninstall_script</key>
+            <string>#!/bin/bash
+    /Library/OnScreenControl/unInstall
+    exit 0
+    		</string>
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
