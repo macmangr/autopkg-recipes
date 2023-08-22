@@ -2,190 +2,55 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>Description</key>
-    <string>Downloads the latest version of Elgato Camera Hub and imports it into Munki.
-
-Set the DERIVE_MIN_OS variable to a non-empty string to set the minimum_os_version via MunkiInstallsItemsCreator. This requires a minimum AutoPkg version of 2.7 please update if you're not already running it.
-
-To force MunkiImporter to import the pkg, set FORCE_MUNKIIMPORT to a non-empty string.</string>
-    <key>Identifier</key>
-    <string>com.github.macmangr.munki.ElgatoCameraHub</string>
-    <key>Input</key>
-    <dict>
-        <key>NAME</key>
-        <string>Elgato Camera Hub</string>
-        <key>MUNKI_REPO_SUBDIR</key>
-        <string>apps/%NAME%</string>
-        <key>DERIVE_MIN_OS</key>
-        <string>YES</string>
-        <key>FORCE_MUNKIIMPORT</key>
-        <string></string>
-        <key>pkginfo</key>
-        <dict>
-            <key>catalogs</key>
-            <array>
-                <string>testing</string>
-            </array>
-            <key>description</key>
-            <string>Elgato Camera Hub</string>
-            <key>developer</key>
-            <string>Corsair Memory, Inc</string>
-            <key>display_name</key>
-            <string>Elgato Camera Hub</string>
-            <key>name</key>
-            <string>%NAME%</string>
-            <key>uninstall_method</key>
-            <string>uninstall_script</string>
-            <key>uninstall_script</key>
-            <string>#!/bin/bash
-
-# unload agent
-launchctl unload $HOME/Library/LaunchAgents/com.elgato.CameraHub.plist
-
-# kill process
-killall &quot;Camera Hub&quot; &gt; /dev/null 2&gt;&amp;1 || :
-
-# remove app. bundle
-rm -rf &quot;/Applications/Camera Hub.app&quot;
-rm -rf &quot;/Applications/Elgato Camera Hub.app&quot;
-
-# remove support files
-rm -rf ~/Library/Application\ Support/Elgato/Camera\ Hub
-rm -rf /Library/Application\ Support/Elgato/Camera\ Hub
-
-# remove preferences
-su - $USER -c &quot;defaults delete com.elgato.CameraHub&quot;
-
-# remove logs
-su - $USER -c &quot;/bin/rm -rf ~/Library/Logs/CameraHub&quot;
-
-exit 0</string>
-            <key>unattended_install</key>
-            <true/>
-            <key>unattended_uninstall</key>
-            <true/>
-        </dict>
-    </dict>
-    <key>MinimumVersion</key>
-    <string>2.7</string>
-    <key>ParentRecipe</key>
-    <string>com.github.macmangr.download.ElgatoCameraHub</string>
-    <key>Process</key>
-    <array>
-        <dict>
-            <key>Processor</key>
-            <string>FlatPkgUnpacker</string>
-            <key>Arguments</key>
-            <dict>
-                <key>flat_pkg_path</key>
-                <string>%pathname%</string>
-                <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/installer_unpack</string>
-                <key>purge_destination</key>
-                <true/>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>PkgPayloadUnpacker</string>
-            <key>Arguments</key>
-            <dict>
-                <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/installer_payload/</string>
-                <key>pkg_payload_path</key>
-                <string>%RECIPE_CACHE_DIR%/installer_unpack/Camera_Hub.pkg/Payload</string>
-                <key>purge_destination</key>
-                <false/>
-            </dict>
-        </dict>
-        <dict>
-            <key>Comment</key>
-            <string>The Camera Hub installer package has a postinstall script that renames the bundled "Camera Hub.app" to "Elgato Camera Hub.app"
-
-This ensures we're able to create an installs array that doesn't cause install loops.
-
-For further info please see https://github.com/autopkg/dataJAR-recipes/issues/270</string>
-            <key>Arguments</key>
-            <dict>
-                <key>overwrite</key>
-                <string>true</string>
-                <key>source</key>
-                <string>%RECIPE_CACHE_DIR%/installer_payload/Applications/Camera Hub.app</string>
-                <key>target</key>
-                <string>%RECIPE_CACHE_DIR%/installer_payload/Applications/Elgato Camera Hub.app</string>
-            </dict>
-            <key>Processor</key>
-            <string>FileMover</string>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>MunkiInstallsItemsCreator</string>
-            <key>Arguments</key>
-            <dict>
-                <key>faux_root</key>
-                <string>%RECIPE_CACHE_DIR%/installer_payload/</string>
-                <key>derive_minimum_os_version</key>
-                <string>%DERIVE_MIN_OS%</string>
-                <key>installs_item_paths</key>
-                <array>
-                    <string>/Applications/Elgato Camera Hub.app</string>
-                </array>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>MunkiPkginfoMerger</string>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>Versioner</string>
-            <key>Arguments</key>
-            <dict>
-                <key>input_plist_path</key>
-                <string>%destination_path%Applications/Elgato Camera Hub.app/Contents/Info.plist</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>MunkiPkginfoMerger</string>
-            <key>Arguments</key>
-            <dict>
-                <key>additional_pkginfo</key>
-                <dict>
-                    <key>version</key>
-                    <string>%version%</string>
-                </dict>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>MunkiPkginfoMerger</string>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>MunkiImporter</string>
-            <key>Arguments</key>
-            <dict>
-                <key>force_munkiimport</key>
-                <string>%FORCE_MUNKIIMPORT%</string>
-                <key>pkg_path</key>
-                <string>%pathname%</string>
-                <key>repo_subdirectory</key>
-                <string>%MUNKI_REPO_SUBDIR%</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>PathDeleter</string>
-            <key>Arguments</key>
-            <dict>
-                <key>path_list</key>
-                <array>
-                    <string>%RECIPE_CACHE_DIR%/installer_payload/</string>
-                    <string>%RECIPE_CACHE_DIR%/installer_unpack/</string>
-                </array>
-            </dict>
-        </dict>
-    </array>
+	<key>Description</key>
+	<string>Downloads the latest version of Elgato Camera Hub and imports it into Munki.</string>
+	<key>Identifier</key>
+	<string>com.github.macmangr.munki.ElgatoCameraHub</string>
+	<key>Input</key>
+	<dict>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/%NAME%</string>
+		<key>NAME</key>
+		<string>Elgato Camera Hub</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>blocking_applications</key>
+			<array>
+				<string>Camera Hub.app</string>
+			</array>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string> </string>
+			<key>developer</key>
+			<string>Corsair Memory, Inc.</string>
+			<key>display_name</key>
+			<string>Elgato Camera Hub</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.macmangr.download.ElgatoCameraHub</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
 </dict>
 </plist>
