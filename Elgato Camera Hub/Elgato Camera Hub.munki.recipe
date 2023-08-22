@@ -71,7 +71,7 @@ exit 0</string>
     <key>MinimumVersion</key>
     <string>2.7</string>
     <key>ParentRecipe</key>
-    <string>com.github.macmangr.download.Elgato Camera Hub</string>
+    <string>com.github.macmangr.download.ElgatoCameraHub</string>
     <key>Process</key>
     <array>
         <dict>
