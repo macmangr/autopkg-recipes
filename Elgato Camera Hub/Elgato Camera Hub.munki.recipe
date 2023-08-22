@@ -35,7 +35,7 @@
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>2.7</string>
+	<string>1.0.0</string>
 	<key>ParentRecipe</key>
 	<string>com.github.macmangr.download.ElgatoCameraHub</string>
 	<key>Process</key>
