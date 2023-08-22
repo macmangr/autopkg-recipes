@@ -3,11 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-    <string>Downloads the latest version of Elgato Camera Hub and imports it into Munki.
-
-Set the DERIVE_MIN_OS variable to a non-empty string to set the minimum_os_version via MunkiInstallsItemsCreator. This requires a minimum AutoPkg version of 2.7 please update if you're not already running it.
-
-To force MunkiImporter to import the pkg, set FORCE_MUNKIIMPORT to a non-empty string.</string>
+	<string>Downloads the latest version of Elgato Camera Hub and imports it into Munki.</string>
 	<key>Identifier</key>
 	<string>com.github.macmangr.munki.ElgatoCameraHub</string>
 	<key>Input</key>
@@ -16,10 +12,6 @@ To force MunkiImporter to import the pkg, set FORCE_MUNKIIMPORT to a non-empty s
 		<string>apps/%NAME%</string>
 		<key>NAME</key>
 		<string>Elgato Camera Hub</string>
-		<key>DERIVE_MIN_OS</key>
-        <string>YES</string>
-        <key>FORCE_MUNKIIMPORT</key>
-        <string></string>
 		<key>pkginfo</key>
 		<dict>
 			<key>blocking_applications</key>
@@ -31,7 +23,7 @@ To force MunkiImporter to import the pkg, set FORCE_MUNKIIMPORT to a non-empty s
 				<string>testing</string>
 			</array>
 			<key>description</key>
-			<string></string>
+			<string> </string>
 			<key>developer</key>
 			<string>Corsair Memory, Inc.</string>
 			<key>display_name</key>
@@ -48,120 +40,17 @@ To force MunkiImporter to import the pkg, set FORCE_MUNKIIMPORT to a non-empty s
 	<string>com.github.macmangr.download.ElgatoCameraHub</string>
 	<key>Process</key>
 	<array>
-        <dict>
-            <key>Processor</key>
-            <string>FlatPkgUnpacker</string>
-            <key>Arguments</key>
-            <dict>
-                <key>flat_pkg_path</key>
-                <string>%pathname%</string>
-                <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/installer_unpack</string>
-                <key>purge_destination</key>
-                <true/>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>PkgPayloadUnpacker</string>
-            <key>Arguments</key>
-            <dict>
-                <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/installer_payload/</string>
-                <key>pkg_payload_path</key>
-                <string>%RECIPE_CACHE_DIR%/installer_unpack/Camera_Hub.pkg/Payload</string>
-                <key>purge_destination</key>
-                <false/>
-            </dict>
-        </dict>
-        <dict>
-            <key>Comment</key>
-            <string>The Camera Hub installer package has a postinstall script that renames the bundled "Camera Hub.app" to "Elgato Camera Hub.app"
-
-This ensures we're able to create an installs array that doesn't cause install loops.
-
-For further info please see https://github.com/autopkg/dataJAR-recipes/issues/270</string>
-            <key>Arguments</key>
-            <dict>
-                <key>overwrite</key>
-                <string>true</string>
-                <key>source</key>
-                <string>%RECIPE_CACHE_DIR%/installer_payload/Applications/Camera Hub.app</string>
-                <key>target</key>
-                <string>%RECIPE_CACHE_DIR%/installer_payload/Applications/Elgato Camera Hub.app</string>
-            </dict>
-            <key>Processor</key>
-            <string>FileMover</string>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>MunkiInstallsItemsCreator</string>
-            <key>Arguments</key>
-            <dict>
-                <key>faux_root</key>
-                <string>%RECIPE_CACHE_DIR%/installer_payload/</string>
-                <key>derive_minimum_os_version</key>
-                <string>%DERIVE_MIN_OS%</string>
-                <key>installs_item_paths</key>
-                <array>
-                    <string>/Applications/Elgato Camera Hub.app</string>
-                </array>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>MunkiPkginfoMerger</string>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>Versioner</string>
-            <key>Arguments</key>
-            <dict>
-                <key>input_plist_path</key>
-                <string>%destination_path%Applications/Elgato Camera Hub.app/Contents/Info.plist</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>MunkiPkginfoMerger</string>
-            <key>Arguments</key>
-            <dict>
-                <key>additional_pkginfo</key>
-                <dict>
-                    <key>version</key>
-                    <string>%version%</string>
-                </dict>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>MunkiPkginfoMerger</string>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>MunkiImporter</string>
-            <key>Arguments</key>
-            <dict>
-                <key>force_munkiimport</key>
-                <string>%FORCE_MUNKIIMPORT%</string>
-                <key>pkg_path</key>
-                <string>%pathname%</string>
-                <key>repo_subdirectory</key>
-                <string>%MUNKI_REPO_SUBDIR%</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>PathDeleter</string>
-            <key>Arguments</key>
-            <dict>
-                <key>path_list</key>
-                <array>
-                    <string>%RECIPE_CACHE_DIR%/installer_payload/</string>
-                    <string>%RECIPE_CACHE_DIR%/installer_unpack/</string>
-                </array>
-            </dict>
-        </dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
 	</array>
 </dict>
 </plist>
