@@ -36,32 +36,6 @@ To force MunkiImporter to import the pkg, set FORCE_MUNKIIMPORT to a non-empty s
             <string>%NAME%</string>
             <key>uninstall_method</key>
             <string>uninstall_script</string>
-            <key>uninstall_script</key>
-            <string>#!/bin/bash
-
-# unload agent
-launchctl unload ""$HOME/Library/LaunchAgents/com.elgato.CameraHub.plist"
-launchctl unload ~/Library/LaunchAgents/com.elgato.CameraHub.plist
-
-# kill process
-killall &quot;Camera Hub&quot; &gt; /dev/null 2&gt;&amp;1 || :
-
-# remove app. bundle
-rm -rf &quot;/Applications/Camera Hub.app&quot;
-rm -rf &quot;/Applications/Elgato Camera Hub.app&quot;
-
-# remove support files
-rm -rf ~/Library/Application\ Support/Elgato/Camera\ Hub
-rm -rf /Library/Application\ Support/Elgato/Camera\ Hub
-
-# remove preferences
-su - $USER -c &quot;defaults delete com.elgato.CameraHub&quot;
-
-# remove logs
-su - $USER -c &quot;/bin/rm -rf ~/Library/Logs/CameraHub&quot;
-su - $USER -c &quot;/bin/rm -rf ~/Library/Logs/ElgatoCameraHub&quot;
-
-exit 0</string>
             <key>unattended_install</key>
             <true/>
             <key>unattended_uninstall</key>
