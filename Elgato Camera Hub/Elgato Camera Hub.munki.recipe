@@ -31,7 +31,7 @@ To force MunkiImporter to import the pkg, set FORCE_MUNKIIMPORT to a non-empty s
 				<string>testing</string>
 			</array>
 			<key>description</key>
-			<string>Elgato Camera Hub</string>
+			<string></string>
 			<key>developer</key>
 			<string>Corsair Memory, Inc.</string>
 			<key>display_name</key>
