@@ -47,7 +47,7 @@ launchctl unload ~/Library/LaunchAgents/com.elgato.CameraHub.plist
 killall &quot;Camera Hub&quot; &gt; /dev/null 2&gt;&amp;1 || :
 
 # remove app. bundle
-rm -rf &quot;/Applications/Camera Hub.app&quot;
+# rm -rf &quot;/Applications/Camera Hub.app&quot;
 rm -rf &quot;/Applications/Elgato Camera Hub.app&quot;
 
 # remove support files
