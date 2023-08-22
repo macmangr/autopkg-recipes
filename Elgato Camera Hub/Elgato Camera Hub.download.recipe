@@ -5,7 +5,7 @@
     <key>Description</key>
     <string>Downloads the latest version of Elgato Camera Hub.</string>
     <key>Identifier</key>
-    <string>com.github.macmangr.download.Elgato Camera Hub</string>
+    <string>com.github.macmangr.download.ElgatoCameraHub</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
