@@ -37,7 +37,7 @@ To force MunkiImporter to import the pkg, set FORCE_MUNKIIMPORT to a non-empty s
             <key>uninstall_method</key>
             <string>uninstall_script</string>
             <key>uninstall_script</key>
-            <string>#!/bin/bash
+            <string>#!/bin/zsh
 
 # unload agent
 sudo /bin/launchctl unload "$HOME/Library/LaunchAgents/com.elgato.CameraHub.plist"
