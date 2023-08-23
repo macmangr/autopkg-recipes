@@ -19,7 +19,7 @@ To force MunkiImporter to import the pkg, set FORCE_MUNKIIMPORT to a non-empty s
 		<key>DERIVE_MIN_OS</key>
         <string>YES</string>
         <key>FORCE_MUNKIIMPORT</key>
-        <string></string>
+        <string>YES</string>
 		<key>pkginfo</key>
 		<dict>
             <key>catalogs</key>
