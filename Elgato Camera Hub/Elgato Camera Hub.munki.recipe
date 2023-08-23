@@ -205,7 +205,7 @@ For further info please see https://github.com/autopkg/dataJAR-recipes/issues/27
             <dict>
                 <key>path_list</key>
                 <array>
-                    <string>%RECIPE_CACHE_DIR%/installer_payload</string>
+                    <string>%RECIPE_CACHE_DIR%/%NAME%</string>
                     <string>%RECIPE_CACHE_DIR%/installer_unpack</string>
                 </array>
             </dict>
