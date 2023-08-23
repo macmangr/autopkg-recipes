@@ -1,7 +1,3 @@
-# autopkg-recipes
-My recipes for AutoPkg. If you use them, click the "Star button" above to show your support!
+Synology Active Backup for Business Agent
 
-Many of these recipes were created with Recipe Robot or are based on recipes from other people
-
-----------------------------------------------------------------------------------------------
-Elgato Camera Hub is under development and not working yet.
+Synology Active Backup for Business is the all-in-one backup solution, designed for streamlining and enhancing data protection in businesses' diverse IT environments. Before protecting and backing up data stored on Windows devices and Linux physical servers, Active Backup for Business Agent is required to be installed on the target device to carry out the designed backup tasks and store the backed up data. As the management is centralized on the server end, most of the actions require either DSM or device's administrative privilege.
