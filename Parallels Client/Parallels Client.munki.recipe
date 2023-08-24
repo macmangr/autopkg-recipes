@@ -3,23 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Download recipe for the latest localized version of Foxit PDF Reader.
-Available "LANGUAGE" values include:
-- "English"
-- "French"
-- "German"
-- "Italian"
-- "Spanish"</string>
+	<string>Download recipe for the latest version of Parallels RAS Client</string>
 	<key>Identifier</key>
-	<string>com.github.macmangr.munki.FoxitPDFReader</string>
+	<string>com.github.macmangr.munki.ParallelsClient</string>
 	<key>Input</key>
 	<dict>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/%NAME%</string>
 		<key>NAME</key>
-		<string>Foxit PDF Reader</string>
-		<key>LANGUAGE</key>
-		<string>German</string>
+		<string>Parallels Client</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>blocking_applications</key>
@@ -28,109 +20,99 @@ Available "LANGUAGE" values include:
 			<array>
 				<string>testing</string>
 			</array>
-			<key>category</key>
-			<string>Utilities</string>
 			<key>description</key>
-			<string>Industry's most powerful PDF reader. View, annotate, form fill, and sign PDF across desktop, mobile, and web – no matter if you're at the office, home, or on the go.</string>
+			<string>Securely access Windows desktops and applications from practically any device—PCs (including ARM64), Mac, thin clients, Linux, Chromebook, iPad, iPhone, Android, and any web (HTML5) browser.</string>
 			<key>developer</key>
-			<string>Foxit Software Inc.</string>
+			<string>Parallels, Inc.</string>
 			<key>display_name</key>
-			<string>Foxit PDF Reader</string>
+			<string>Parallels Client</string>
 			<key>name</key>
 			<string>%NAME%</string>
-			<key>postinstall_script</key>
-			<string>#!/bin/sh
-# Disable automatic in-updates
-/usr/bin/defaults write "/Library/Preferences/com.foxit-software.Foxit PDF Reader" ReaderLite_UpdateMode -bool FALSE
-# Do not use splash screen
-/usr/bin/defaults write "/Library/Preferences/com.foxit-software.Foxit PDF Reader" Preferences.General.bShowStartPage -bool FALSE</string>
-<key>preuninstall_script</key>
-<string>#!/bin/sh
-/bin/launchctl unload /Library/LaunchDaemons/com.foxit.PDFReaderUpdateService.plist
-/bin/rm "/Library/Preferences/com.foxit-software.Foxit PDF Reader.plist"
-exit 0</string>
 			<key>unattended_install</key>
 			<true/>
-			<key>uninstall_method</key>
-            <string>uninstall_script</string>
-            <key>uninstall_script</key>
-            <string>#!/bin/bash
-/bin/rm -rf "/Applications/Foxit PDF Reader.app"
-exit 0</string>
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.5</string>
+	<string>2.0.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.macmangr.download.FoxitPDFReader</string>
+	<string>com.github.macmangr.download.ParallelsClient</string>
 	<key>Process</key>
 	<array>
 		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>info_path</key>
-				<string>%found_filename%/Contents/Info.plist</string>
-				<key>plist_keys</key>
+				<key>Arguments</key>
 				<dict>
-					<key>LSMinimumSystemVersion</key>
-					<string>minimum_os_version</string>
+					<key>flat_pkg_path</key>
+					<string>%pathname%</string>
+					<key>destination_path</key>
+					<string>%RECIPE_CACHE_DIR%/unpack</string>
 				</dict>
+				<key>Processor</key>
+				<string>FlatPkgUnpacker</string>
 			</dict>
-			<key>Processor</key>
-			<string>PlistReader</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
 			<dict>
-				<key>installs_item_paths</key>
-				<array>
-					<string>/Applications/%found_basename%</string>
-				</array>
-				<key>faux_root</key>
-				<string>%RECIPE_CACHE_DIR%/extracted_pkg/payload</string>
-			</dict>
-			<key>Processor</key>
-			<string>MunkiInstallsItemsCreator</string>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>MunkiPkginfoMerger</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>additional_pkginfo</key>
+				<key>Arguments</key>
 				<dict>
-					<key>minimum_os_version</key>
-					<string>%minimum_os_version%</string>
+					<key>pkg_payload_path</key>
+					<string>%RECIPE_CACHE_DIR%/unpack/ParallelsClient.pkg/Payload</string>
+					<key>destination_path</key>
+					<string>%RECIPE_CACHE_DIR%/payload/Applications</string>
 				</dict>
+				<key>Processor</key>
+				<string>PkgPayloadUnpacker</string>
 			</dict>
-			<key>Processor</key>
-			<string>MunkiPkginfoMerger</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
 			<dict>
-				<key>additional_pkginfo</key>
+				<key>Arguments</key>
 				<dict>
-					<key>version</key>
-					<string>%version%</string>
+					<key>input_plist_path</key>
+					<string>%RECIPE_CACHE_DIR%/payload/Applications/Contents/Info.plist</string>
 				</dict>
+				<key>Processor</key>
+				<string>Versioner</string>
 			</dict>
-			<key>Processor</key>
-			<string>MunkiPkginfoMerger</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
 			<dict>
-				<key>pkg_path</key>
-				<string>%pathname%</string>
-				<key>repo_subdirectory</key>
-				<string>%MUNKI_REPO_SUBDIR%</string>
+				<key>Arguments</key>
+				<dict>
+					<key>additional_pkginfo</key>
+					<dict>
+						<key>version</key>
+						<string>%version%</string>
+					</dict>
+				</dict>
+				<key>Processor</key>
+				<string>MunkiPkginfoMerger</string>
 			</dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
-		</dict>
+			<dict>
+				<key>Arguments</key>
+				<dict>
+					<key>faux_root</key>
+					<string>%RECIPE_CACHE_DIR%/payload</string>
+					<key>installs_item_paths</key>
+					<array>
+						<string>/Applications/Parallels Client.app</string>
+					</array>
+					<key>derive_minimum_os_version</key>
+				<string>%DERIVE_MIN_OS%</string>
+				</dict>
+				<key>Processor</key>
+				<string>MunkiInstallsItemsCreator</string>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>MunkiPkginfoMerger</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<dict>
+					<key>pkg_path</key>
+					<string>%pathname%</string>
+					<key>repo_subdirectory</key>
+					<string>%MUNKI_REPO_SUBDIR%</string>
+					<key>version_comparison_key</key>
+					<string>CFBundleVersion</string>
+				</dict>
+				<key>Processor</key>
+				<string>MunkiImporter</string>
+			</dict>
 	</array>
 </dict>
 </plist>
