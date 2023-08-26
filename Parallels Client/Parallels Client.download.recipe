@@ -18,10 +18,44 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
+				<key>re_flags</key>
+				<array>
+					<string>IGNORECASE</string>
+				</array>
+				<key>re_pattern</key>
+				<string>(?:\")(.*?)(?:\")</string>
+				<key>result_output_var_name</key>
+				<string>MAJOR_VERSION</string>
+				<key>url</key>
+				<string>https://download.parallels.com/website_links/ras/index.json</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>re_flags</key>
+				<array>
+					<string>IGNORECASE</string>
+				</array>
+				<key>re_pattern</key>
+				<string>(?:Mac Client)\": \"(https.*?)(?:\")</string>
+				<key>result_output_var_name</key>
+				<string>url_version</string>
+				<key>url</key>
+				<string>https://download.parallels.com/website_links/ras/%MAJOR_VERSION%/builds-en_US.json</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
 				<key>filename</key>
 				<string>%NAME%.pkg</string>
 				<key>url</key>
-				<string>https://download.parallels.com/ras/v19/19.2.3.24007/RasClient-Mac-Notarized-19.2.3-24007.pkg</string>
+				<string>%url_version%</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
