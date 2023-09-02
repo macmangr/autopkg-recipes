@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Comment</key>
+	<string>Created with Recipe Robot v2.2.0 (https://github.com/homebysix/recipe-robot)</string>
+	<key>Description</key>
+	<string>Downloads the version of STARFACE UCC Client specified by "MAJOR_VERSION".
+The version of the client depends on the version of the PBX, so the correct version should be selected for installation
+
+Available "MAJOR_VERSION" values (as of December 2022) include:
+- "6.8"		(never released)
+- "6.7"		(for the latest 6.7, 6.7.3.3 at the moment)
+- "6.7.2"	(for the latest 6.7.2)</string>
+	<key>Identifier</key>
+	<string>com.github.macmangr.download.STARFACEUCCClient</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>STARFACE UCC Client</string>
+		<key>MAJOR_VERSION</key>
+		<string>6.7</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>re_pattern</key>
+                <string>enclosure url="(?P&lt;url&gt;https:\/\/www.starface-cdn.de\/starface\/clients\/mac\/STARFACE_UCC_Client_%MAJOR_VERSION%.*.zip)</string>
+                <key>result_output_var_name</key>
+                <string>url</string>
+				<key>url</key>
+				<string>https://www.starface-cdn.de/starface/clients/mac/appcast.xml</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%.zip</string>
+				<key>url</key>
+                <string>%url%</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>archive_path</key>
+				<string>%pathname%</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+			<key>Processor</key>
+			<string>Unarchiver</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/STARFACE UCC Client.app</string>
+				<key>requirement</key>
+				<string>anchor apple generic and identifier "de.starface.STARFACE-Client" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = Q965D3UXEW)</string>
+			</dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+		</dict>
+	</array>
+</dict>
+</plist>
