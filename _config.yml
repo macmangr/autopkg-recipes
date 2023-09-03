@@ -1,9 +1,0 @@
-# Site settings
-title: My recipes for AutoPkg
-author:
-  name: Savvas Nterventlis
-  email: savvas@macman.gr
-description: "My recipes for AutoPkg. If you use them, click the "Star button" above to show your support!"
-
-# Build settings
-remote_theme: jekyll/minima
