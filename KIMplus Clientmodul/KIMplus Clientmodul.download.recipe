@@ -19,11 +19,11 @@
 			<key>Arguments</key>
 			<dict>
 				<key>re_pattern</key>
-				<string>(?:targetMediaFileId=\"mac\").*(?:fileName=\")(.*?)\"</string>
+				<string>kimplus-clientmodul.*?mac.*?.dmg</string>
 				<key>result_output_var_name</key>
 				<string>dl_name</string>
 				<key>url</key>
-				<string>https://cm.kimplus.de/download/current/updates.xml</string>
+				<string>https://cm.kimplus.de/download/current/</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLTextSearcher</string>
